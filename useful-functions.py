@@ -74,7 +74,7 @@ class usefulFunc():
         
         if carry != 0: result = '1' + result 
                         
-        print(result)
+        return(result)
 
 def main():
     
