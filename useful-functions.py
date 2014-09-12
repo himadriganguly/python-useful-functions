@@ -95,7 +95,7 @@ def main():
     else:
         print("Not a valid email.") 
     
-    func.binary_addition(2, 13)   
+    print(func.binary_addition(2, 13))  
     
 if __name__ == "__main__": 
     main()
