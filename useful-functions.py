@@ -45,9 +45,36 @@ class usefulFunc():
     
     def email_validate(self, email): 
                
-        match = re.search(r'(^[a-zA-Z_0-9\.\+_-]+)@[a-zA-Z].[a-zA-Z\.]+$', email)
+        match = re.search(r'(^[a-zA-Z0-9\.\+_-]+)@[a-zA-Z].[a-zA-Z\.]+$', email)
         
-        if match: return True                
+        if match: return True    
+    
+    def binary_addition(self, first_num, second_num):
+        
+        bnum1 = str(bin(first_num)[2:])
+        bnum2 = str(bin(second_num)[2:])
+                
+        maxlen = max( len(str(bnum1)), len(str(bnum2)) )
+        
+        bnum1 = bnum1.zfill(maxlen)
+        bnum2 = bnum2.zfill(maxlen)
+        
+        #http://stackoverflow.com/questions/21420447/need-help-in-adding-binary-numbers-in-python
+        
+        result = ''
+        carry = 0
+        
+        for i in range(maxlen-1, -1, -1):
+            r = carry
+            r += 1 if bnum1[i] == '1' else 0
+            r += 1 if bnum2[i] == '1' else 0
+            
+            result = ('1' if r%2 == 1 else '0') + result
+            carry = 0 if r < 2 else 1 
+        
+        if carry != 0: result = '1' + result 
+                        
+        print(result)
 
 def main():
     
@@ -66,7 +93,9 @@ def main():
     if func.email_validate("test-user@localhost.co.in"):
         print("It is a valid email.")
     else:
-        print("Not a valid email.")    
+        print("Not a valid email.") 
+    
+    func.binary_addition(2, 13)   
     
 if __name__ == "__main__": 
     main()
