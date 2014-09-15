@@ -63,8 +63,10 @@ def binary_addition(*args):
     '''
     >>> binary_addition(2, 13)
     '1111'
+    >>> binary_addition(2, 13, 4, 77)
+    '1100000'
     '''    
-    return bin(sum(args))[:2]  
+    return bin(sum(args))[2:]  
     
 
 if __name__ == "__main__": 
