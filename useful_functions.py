@@ -21,9 +21,7 @@ def isprime(n):
     9 is prime: False
     10 is prime: False
     '''   
-    if n == 0:
-        return False
-    elif n == 1:
+    if n in [0, 1]:
         return False   
          
     for i in range(2, n):
