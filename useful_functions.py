@@ -59,35 +59,12 @@ def valid_email(email):
     return False 
 
 
-def binary_addition(n_1, n_2):
+def binary_addition(*args):
     '''
     >>> binary_addition(2, 13)
     '1111'
     '''    
-    bn_1 = bin(n_1)[2:]
-    bn_2 = bin(n_2)[2:]
-            
-    maxlen = max(len(bn_1), len(bn_2))
-    
-    bn_1 = bn_1.zfill(maxlen)
-    bn_2 = bn_2.zfill(maxlen)
-    
-    #http://stackoverflow.com/questions/21420447/need-help-in-adding-binary-numbers-in-python
-    
-    result = ''
-    carry = 0
-    
-    for i in range(maxlen-1, -1, -1):
-        r = carry
-        r += 1 if bn_1[i] == '1' else 0
-        r += 1 if bn_2[i] == '1' else 0
-        
-        result = ('1' if r%2 == 1 else '0') + result
-        carry = 0 if r < 2 else 1 
-    
-    if carry != 0: result = '1' + result 
-                    
-    return result  
+    return bin(sum(args))[:2]  
     
 
 if __name__ == "__main__": 
