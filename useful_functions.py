@@ -65,7 +65,22 @@ def binary_addition(*args):
     '1100000'
     '''    
     return bin(sum(args))[2:]  
-    
+
+def odds(list):
+    '''
+    Returns all odd members of a list in the same order they appeared in it.
+    >>> odds([1,2,3,4,5,6,7,8,9,10])
+    [1, 3, 5, 7, 9]
+    '''
+    return [i for i in list if i % 2 == 1]
+
+def evens(list):
+    '''
+    Returns all even members of a list in the same order they appeard in it.
+    >>> evens([1,2,3,4,5,6,7,8,9,10])
+    [2, 4, 6, 8, 10]
+    '''
+    return [i for i in list if i % 2 == 0]
 
 if __name__ == "__main__": 
     import doctest
